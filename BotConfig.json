@@ -1,7 +1,11 @@
 {
-    "tokens":
+    "Tokens":
     {
-        "discord": "asdfasdfasdf"
+        "Discord": "DiscordTokenHere"
     },
-    "prefix": "&"
+    "Prefix": "&",
+    "ConnectionStrings":
+    {
+        "BasicBotLogging": "C:\\Bots\\Database\\BasicBotLogging.db;DateTimeKind=Utc"
+    }
 }

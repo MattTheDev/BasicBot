@@ -3,6 +3,8 @@ using Discord.Commands;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
+using BasicBot.Models;
+using Microsoft.Extensions.Options;
 
 namespace BasicBot.Services
 {
@@ -12,19 +14,19 @@ namespace BasicBot.Services
     {
         private readonly DiscordSocketClient _discord;
         private readonly CommandService _commandService;
-        private readonly IConfiguration _configuration;
+        private readonly BotConfig _botConfig;
         private readonly IServiceProvider _serviceProvider;
 
         public CommandHandlerService(
             DiscordSocketClient discord,
             CommandService commandService,
-            IConfiguration configuration,
+            IOptions<BotConfig> botConfig,
             IServiceProvider serviceProvider
         )
         {
             _discord = discord;
             _commandService = commandService;
-            _configuration = configuration;
+            _botConfig = botConfig.Value;
             _serviceProvider = serviceProvider;
 
             _discord.MessageReceived += OnMessageReceivedAsync;
@@ -38,12 +40,12 @@ namespace BasicBot.Services
                msg.Author.IsBot || 
                msg.Author.IsWebhook)
             {
-                return;
+                return; 
             }
 
             var context = new SocketCommandContext(_discord, msg);
             var argPosition = 0;
-            if(msg.HasStringPrefix(_configuration["prefix"], ref argPosition) || 
+            if(msg.HasStringPrefix(_botConfig.Prefix, ref argPosition) || 
                     msg.HasMentionPrefix(_discord.CurrentUser, ref argPosition))
                     {
                         var result = await _commandService.ExecuteAsync(context, argPosition, _serviceProvider);

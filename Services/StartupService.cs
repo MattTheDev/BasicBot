@@ -1,10 +1,11 @@
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using BasicBot.Models;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace BasicBot.Services
 {
@@ -13,23 +14,23 @@ namespace BasicBot.Services
         private readonly IServiceProvider _provider;
         private readonly DiscordSocketClient _discord;
         private readonly CommandService _commandService;
-        private readonly IConfigurationRoot _configuration;
+        private readonly BotConfig _botConfig;
 
         public StartupService(
             IServiceProvider provider,
             DiscordSocketClient discord,
             CommandService commandService,
-            IConfigurationRoot configuration)
+            IOptions<BotConfig> botConfig)
         {
             _provider = provider;
             _discord = discord;
             _commandService = commandService;
-            _configuration = configuration;
+            _botConfig = botConfig.Value;
         }
         
         public async Task StartAsync()
         {
-            var discordToken = _configuration["tokens:discord"];
+            var discordToken = _botConfig.Tokens.Discord;
 
             if(string.IsNullOrEmpty(discordToken))
             {
