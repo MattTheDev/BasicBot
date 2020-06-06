@@ -1,0 +1,13 @@
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.exe
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.deps.json
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.runtimeconfig.json
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.runtimeconfig.dev.json
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.dll
+C:\src\BasicBot\bin\Debug\netcoreapp3.1\BasicBot.pdb
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.csprojAssemblyReference.cache
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.csproj.CoreCompileInputs.cache
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.AssemblyInfoInputs.cache
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.AssemblyInfo.cs
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.dll
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.pdb
+C:\src\BasicBot\obj\Debug\netcoreapp3.1\BasicBot.genruntimeconfig.cache
