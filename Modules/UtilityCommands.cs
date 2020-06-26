@@ -1,14 +1,15 @@
-using System.Threading.Tasks;
 using Discord.Commands;
+using System.Threading.Tasks;
 
-namespace BasicBot.Modules 
+namespace BasicBot.Modules
 {
     public class UtilityCommands : ModuleBase
     {
         [Command("ping", RunMode = RunMode.Async)]
-        public async Task PingAsync()
+        [Summary("Basic ping command that returns a basic message on execution.")]
+        public Task PingAsync()
         {
-            await ReplyAsync("Pong!");
+            return ReplyAsync("Pong!");
         }
     }
 }

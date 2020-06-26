@@ -1,11 +1,11 @@
-using System;
-using System.Reflection;
-using System.Threading.Tasks;
 using BasicBot.Models;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Options;
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace BasicBot.Services
 {

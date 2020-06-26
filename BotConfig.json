@@ -6,6 +6,6 @@
     "Prefix": "&",
     "ConnectionStrings":
     {
-        "BasicBotLogging": "C:\\Bots\\Database\\BasicBotLogging.db;DateTimeKind=Utc"
+        "BasicBotLogging": "PATH_TO_YOUR_LOGGING_DATABASE"
     }
 }

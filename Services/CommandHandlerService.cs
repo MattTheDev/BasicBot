@@ -1,10 +1,9 @@
-using Discord.WebSocket;
+using BasicBot.Models;
 using Discord.Commands;
-using Microsoft.Extensions.Configuration;
+using Discord.WebSocket;
+using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
-using BasicBot.Models;
-using Microsoft.Extensions.Options;
 
 namespace BasicBot.Services
 {

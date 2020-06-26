@@ -1,11 +1,11 @@
-using System;
-using System.Threading.Tasks;
 using BasicBot.Contracts;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using System;
+using System.Threading.Tasks;
 
-namespace BasicBot.Services 
+namespace BasicBot.Services
 {
     public class LoggingService 
     {

@@ -1,13 +1,13 @@
-using System;
-using System.Data.SQLite;
-using System.Threading.Tasks;
 using BasicBot.Contracts;
 using BasicBot.Models;
 using Dapper;
 using Discord;
 using Microsoft.Extensions.Options;
+using System;
+using System.Data.SQLite;
+using System.Threading.Tasks;
 
-namespace BasicBot.Implementations 
+namespace BasicBot.Implementations
 {
     public class LogAccessor : ILogAccessor
     {
@@ -18,14 +18,16 @@ namespace BasicBot.Implementations
             _botSettings = botSettings.Value;
         }
 
-        public async Task Create(LogMessage logMessage)
+        ///<inheritdoc cref="ILogAccessor"/>
+        public Task Create(LogMessage logMessage)
         {
-            await using var connection = new SQLiteConnection($"DataSource={_botSettings.ConnectionStrings.BasicBotLogging}");
+            using var connection = new SQLiteConnection($"DataSource={_botSettings.ConnectionStrings.BasicBotLogging}");
 
             var sql = "INSERT INTO DiscordLogs (Severity, Source, Message, Exception, CreatedDate) VALUES " +
                         "(@Severity, @Source, @Message, @Exception, @CreatedDate)";
 
-            await connection.ExecuteAsync(sql, new {
+            return connection.ExecuteAsync(sql, new
+            {
                 Severity = logMessage.Severity.ToString(),
                 logMessage.Source,
                 logMessage.Message,
